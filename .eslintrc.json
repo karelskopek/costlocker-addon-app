@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": false,
+    "commonjs": true,
+    "es6": true,
+    "jest": false,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base"
+  ],
+  "root": true,
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-console": 0,
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ]
+  }
+}
