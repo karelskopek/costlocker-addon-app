@@ -5,15 +5,24 @@ const {
   Menu,
   Tray,
 } = require('electron');
-const isDev = require('electron-is-dev');
 const { join } = require('path');
+
+// Library.
+const initAutoUpdater = require('../lib/initAutoUpdater');
 
 // Templates.
 const appMenuTemplate = require('../templates/appMenu');
 const trayMenuTemplate = require('../templates/trayMenu');
 
 // Get the app URL.
-const APP_URL = (true || isDev) ? 'http://localhost:3000' : 'https://tracking.costlocker.com';
+const {
+  APP_URL = 'http://localhost:3000',
+  AUTO_UPDATER_INTERVAL = 60 * 1000,
+  AUTO_UPDATER_SERVER = 'http://localhost:3002',
+} = process.env;
+
+// Initialize the auto updater.
+initAutoUpdater(AUTO_UPDATER_SERVER, AUTO_UPDATER_INTERVAL);
 
 // Global items.
 let appMenu; // eslint-disable-line no-unused-vars
