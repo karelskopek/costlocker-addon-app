@@ -1,7 +1,7 @@
 {
   "name": "costlocker-addon-app",
   "productName": "Costlocker",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Costlocker Electron application.",
   "main": "main/index.js",
   "repository": "git@github.com:karelskopek/costlocker-addon-app.git",
