@@ -26,9 +26,7 @@
     "mac": {
       "icon": "build/icons/mac/icon.icns",
       "publish": {
-        "provider": "github",
-        "releaseType": "release",
-        "vPrefixedTagName": false
+        "provider": "github"
       },
       "target": [
         "zip"
