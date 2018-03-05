@@ -19,7 +19,8 @@
     "lint": "node ./node_modules/.bin/eslint .",
     "pack": "electron-builder --dir",
     "start": "electron .",
-    "start:dev": "nodemon ./node_modules/.bin/electron ."
+    "start:dev": "nodemon ./node_modules/.bin/electron .",
+    "release": "node cli/release"
   },
   "build": {
     "mac": {
