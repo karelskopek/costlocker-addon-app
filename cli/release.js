@@ -10,6 +10,8 @@ const {
   npm_package_version: VERSION,
 } = process.env;
 
+const FILE_NAME = `${NAME}-${VERSION}-mac.zip`;
+
 console.log(`
 latest-mac.json
 ---------------
@@ -17,6 +19,10 @@ latest-mac.json
 {
   "version": "${VERSION}",
   "releaseDate": "${RELEASE_DATE}",
-  "url": "https://github.com/${AUTHOR}/${REPOSITORY}/releases/download/${VERSION}/${NAME}-${VERSION}-mac.zip"
+  "url": "https://github.com/${AUTHOR}/${REPOSITORY}/releases/download/${VERSION}/${FILE_NAME}"
 }
+
+FILENAME
+--------
+${FILE_NAME}
 `);
