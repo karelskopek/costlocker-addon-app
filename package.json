@@ -1,10 +1,10 @@
 {
   "name": "costlocker-addon-app",
-  "productName": "Costlocker Addon",
+  "productName": "Costlocker",
   "version": "0.2.2",
   "description": "Costlocker Electron application.",
   "main": "main/index.js",
-  "repository": "git@github.com:karelskopek/costlocker-addon.git",
+  "repository": "git@github.com:karelskopek/costlocker-addon-app.git",
   "author": "Costlocker <hello@costlocker.com>",
   "license": "MIT",
   "private": true,
@@ -15,30 +15,38 @@
   },
   "scripts": {
     "dist": "yarn icons && electron-builder",
-    "icons": "node ./node_modules/.bin/electron-icon-maker --input=./assets/icons/main.png --output=./build",
-    "lint": "node ./node_modules/.bin/eslint .",
+    "icons": "electron-icon-maker --input=./assets/icons/main.png --output=./build",
+    "lint": "eslint .",
     "pack": "electron-builder --dir",
     "start": "electron .",
     "start:dev": "nodemon ./node_modules/.bin/electron .",
-    "release": "node cli/release"
+    "release": "build"
   },
   "build": {
     "mac": {
       "icon": "build/icons/mac/icon.icns",
-      "target": "dir"
+      "publish": {
+        "provider": "github",
+        "releaseType": "release",
+        "vPrefixedTagName": false
+      },
+      "target": [
+        "zip"
+      ]
     }
   },
   "devDependencies": {
     "devtron": "1.4.0",
     "electron": "1.8.2",
-    "electron-builder": "20.2.0",
+    "electron-builder": "20.2.1",
     "electron-icon-maker": "0.0.4",
-    "eslint": "4.18.1",
+    "eslint": "4.18.2",
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.9.0",
     "nodemon": "1.17.1"
   },
   "dependencies": {
-    "electron-is-dev": "0.3.0"
+    "electron-is-dev": "0.3.0",
+    "electron-updater": "2.21.0"
   }
 }

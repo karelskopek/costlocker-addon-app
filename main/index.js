@@ -5,24 +5,20 @@ const {
   Menu,
   Tray,
 } = require('electron');
+const { autoUpdater } = require('electron-updater');
 const { join } = require('path');
-
-// Library.
-const initAutoUpdater = require('../lib/initAutoUpdater');
 
 // Templates.
 const appMenuTemplate = require('../templates/appMenu');
 const trayMenuTemplate = require('../templates/trayMenu');
 
+// Simpler checking for updates using electron updater.
+autoUpdater.checkForUpdatesAndNotify();
+
 // Get the app URL.
 const {
   APP_URL = 'http://localhost:3000',
-  AUTO_UPDATER_INTERVAL = 60 * 1000,
-  AUTO_UPDATER_SERVER = 'http://localhost:3002',
 } = process.env;
-
-// Initialize the auto updater.
-initAutoUpdater(AUTO_UPDATER_SERVER, AUTO_UPDATER_INTERVAL);
 
 // Global items.
 let appMenu; // eslint-disable-line no-unused-vars
