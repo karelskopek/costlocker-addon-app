@@ -5,10 +5,9 @@ const RELEASE_DATE = now.toISOString();
 // Extract key info.
 const {
   AUTHOR = 'karelskopek',
-  npm_package_name: NAME,
+  NAME = 'costlocker',
+  npm_package_name: REPOSITORY,
   npm_package_version: VERSION,
-  npm_config_version_tag_prefix: VERSION_PREFIX,
-  REPOSITORY = 'costlocker-addon-desktop',
 } = process.env;
 
 console.log(`
@@ -16,8 +15,8 @@ latest-mac.json
 ---------------
 
 {
-  "version": "${VERSION_PREFIX}${VERSION}",
+  "version": "${VERSION}",
   "releaseDate": "${RELEASE_DATE}",
-  "url": "https://github.com/${AUTHOR}/${REPOSITORY}/releases/download/${VERSION_PREFIX}${VERSION}/${NAME}-${VERSION}-mac.zip"
+  "url": "https://github.com/${AUTHOR}/${REPOSITORY}/releases/download/${VERSION}/${NAME}-${VERSION}-mac.zip"
 }
 `);
