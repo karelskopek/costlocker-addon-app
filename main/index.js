@@ -7,22 +7,21 @@ const {
 } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const { join } = require('path');
-autoUpdater.logger = require('electron-log');
+const logger = require('electron-log');
+
+// Get the app URL.
+const { APP_URL } = require('../app.config');
 
 // Templates.
 const appMenuTemplate = require('../templates/appMenu');
 const trayMenuTemplate = require('../templates/trayMenu');
 
 // Log autoUpdater status.
+autoUpdater.logger = logger;
 autoUpdater.logger.transports.file.level = 'info';
 
 // Simpler checking for updates using electron updater.
 autoUpdater.checkForUpdatesAndNotify();
-
-// Get the app URL.
-const {
-  APP_URL = 'http://localhost:3000',
-} = process.env;
 
 // Global items.
 let appMenu; // eslint-disable-line no-unused-vars
