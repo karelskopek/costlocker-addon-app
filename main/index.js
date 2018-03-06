@@ -7,10 +7,14 @@ const {
 } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const { join } = require('path');
+autoUpdater.logger = require('electron-log');
 
 // Templates.
 const appMenuTemplate = require('../templates/appMenu');
 const trayMenuTemplate = require('../templates/trayMenu');
+
+// Log autoUpdater status.
+autoUpdater.logger.transports.file.level = 'info';
 
 // Simpler checking for updates using electron updater.
 autoUpdater.checkForUpdatesAndNotify();
