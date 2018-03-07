@@ -1,7 +1,7 @@
 /**
  * Tray menu template.
  */
-module.exports = app => [
+module.exports = ({ app }) => [
   {
     accelerator: 'CmdOrCtrl+1',
     label: 'Desktop Addon → Design',

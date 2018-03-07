@@ -59,6 +59,9 @@ app.on('ready', async () => {
     width: 720,
   });
 
+  // Shared templates arguments.
+  const templateArguments = { app, autoUpdater, mainWindow };
+
   // Load URL.
   mainWindow.loadURL(APP_URL);
 
@@ -66,10 +69,10 @@ app.on('ready', async () => {
   tray = new Tray(join(__dirname, 'assets/icons/tray.png'));
 
   // Tray menu.
-  trayMenu = Menu.buildFromTemplate(trayMenuTemplate(app));
+  trayMenu = Menu.buildFromTemplate(trayMenuTemplate(templateArguments));
 
   // Application menu.
-  appMenu = Menu.setApplicationMenu(Menu.buildFromTemplate(appMenuTemplate(app)));
+  appMenu = Menu.setApplicationMenu(Menu.buildFromTemplate(appMenuTemplate(templateArguments)));
 
   // Tooltip.
   // @TODO: Add current tracking record info.

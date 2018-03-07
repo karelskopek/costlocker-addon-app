@@ -1,7 +1,7 @@
 /**
  * Application menu template.
  */
-module.exports = app => [{
+module.exports = ({ app, autoUpdater, mainWindow }) => [{
   label: 'Application',
   submenu: [
     {
@@ -10,6 +10,17 @@ module.exports = app => [{
     },
     {
       type: 'separator',
+    },
+    {
+      click: () => {
+        mainWindow.webContents.session.clearStorageData();
+        mainWindow.webContents.reload();
+      },
+      label: 'Clear cache',
+    },
+    {
+      click: () => autoUpdater.checkForUpdatesAndNotify(),
+      label: 'Check for updates',
     },
     {
       accelerator: 'Command+Q',
