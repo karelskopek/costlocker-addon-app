@@ -17,11 +17,17 @@ const appMenuTemplate = require('../templates/appMenu');
 const trayMenuTemplate = require('../templates/trayMenu');
 
 // Log autoUpdater status.
+autoUpdater.allowPrerelease = true;
+autoUpdater.autoDownload = true;
+autoUpdater.fullChangelog = true;
 autoUpdater.logger = logger;
 autoUpdater.logger.transports.file.level = 'info';
 
 // Simpler checking for updates using electron updater.
 autoUpdater.checkForUpdatesAndNotify();
+
+// Check for new updates every 10 minutes.
+setInterval(() => autoUpdater.checkForUpdatesAndNotify(), 10 * 60 * 1000);
 
 // Global items.
 let appMenu; // eslint-disable-line no-unused-vars
