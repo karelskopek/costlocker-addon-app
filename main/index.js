@@ -52,8 +52,10 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     backgroundColor: '#ffffff',
     height: 600,
-    maximizable: false,
-    resizable: false,
+    maximizable: true,
+    minHeight: 480,
+    minWidth: 640,
+    resizable: true,
     title: 'Costlocker',
     titleBarStyle: 'hidden',
     width: 720,
