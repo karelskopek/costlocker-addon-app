@@ -1,6 +1,6 @@
 {
-  "name": "costlocker-addon-app",
-  "productName": "Costlocker",
+  "name": "costlocker-desktop",
+  "productName": "Costlocker Desktop",
   "version": "0.2.9",
   "description": "Costlocker Electron application.",
   "main": "main/index.js",
