@@ -14,15 +14,15 @@
     "yarn": "^1.3.2"
   },
   "scripts": {
-    "dist": "electron-builder --win --mac",
-    "dist:mac": "electron-builder --mac",
-    "dist:win": "electron-builder --win",
+    "dist": "build --win --mac",
+    "dist:mac": "build --mac",
+    "dist:win": "build --win",
     "icons": "electron-icon-maker --input=./assets/icons/main.png --output=./build",
     "lint": "eslint .",
-    "pack": "electron-builder --dir",
+    "pack": "build --dir",
     "start": "electron .",
     "start:dev": "nodemon ./node_modules/.bin/electron .",
-    "release": "build"
+    "release": "build --win --mac"
   },
   "build": {
     "dmg": {
