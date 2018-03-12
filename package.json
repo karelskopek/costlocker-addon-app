@@ -32,7 +32,8 @@
         "provider": "github"
       },
       "target": [
-        "dmg"
+        "dmg",
+        "zip"
       ]
     }
   },
