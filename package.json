@@ -29,8 +29,9 @@
         "provider": "github"
       },
       "target": [
-        "zip"
-      ]
+        "dmg"
+      ],
+      "title": "${productName}"
     }
   },
   "devDependencies": {
