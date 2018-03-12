@@ -14,7 +14,7 @@
     "yarn": "^1.3.2"
   },
   "scripts": {
-    "dist": "electron-builder",
+    "dist": "electron-builder --win --mac",
     "icons": "electron-icon-maker --input=./assets/icons/main.png --output=./build",
     "lint": "eslint .",
     "pack": "electron-builder --dir",
@@ -30,10 +30,15 @@
       "icon": "build/icons/mac/icon.icns",
       "publish": {
         "provider": "github"
+      }
+    },
+    "win": {
+      "icon": "build/icons/win/icon.ico",
+      "publish": {
+        "provider": "github"
       },
       "target": [
-        "dmg",
-        "zip"
+        "nsis"
       ]
     }
   },
