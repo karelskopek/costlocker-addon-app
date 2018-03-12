@@ -15,6 +15,8 @@
   },
   "scripts": {
     "dist": "electron-builder --win --mac",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
     "icons": "electron-icon-maker --input=./assets/icons/main.png --output=./build",
     "lint": "eslint .",
     "pack": "electron-builder --dir",
@@ -38,7 +40,13 @@
         "provider": "github"
       },
       "target": [
-        "nsis"
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ]
     }
   },
