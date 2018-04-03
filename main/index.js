@@ -34,6 +34,7 @@ let appMenu; // eslint-disable-line no-unused-vars
 let mainWindow;
 let tray;
 let trayMenu;
+let willQuitApp = false;
 
 /**
  * Toggle window.
@@ -67,6 +68,29 @@ app.on('ready', async () => {
   // Load URL.
   mainWindow.loadURL(APP_URL);
 
+  // Hide the window instead of quiting the app.
+  mainWindow.on('close', (event) => {
+    // Actually quit the app.
+    if (willQuitApp) {
+      mainWindow = null;
+      return;
+    }
+
+    // Prevent default action and hide the main window.
+    event.preventDefault();
+    mainWindow.hide();
+  });
+
+  // Re-open the window when clicking on the Dock icon.
+  app.on('activate', () => {
+    mainWindow.show();
+  });
+
+  // Actually quit the app.
+  app.on('before-quit', () => {
+    willQuitApp = true;
+  });
+
   // Create tray icon.
   tray = new Tray(join(__dirname, 'assets/icons/tray.png'));
 
@@ -94,6 +118,3 @@ app.on('ready', async () => {
   // Tray right click.
   tray.on('right-click', toggleWindow);
 });
-
-// Quit the app once all windows are closed.
-app.on('window-all-closed', app.quit);
